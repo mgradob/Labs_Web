@@ -11,9 +11,10 @@
                 <p>Cantidad: {{ item.quantity }}</p>
             </div>
         </md-list-item>
+        <md-list-item>
+            <md-button class="md-secondary">Ver todo...</md-button>
+        </md-list-item>
     </md-list>
-    <a href="#/cart">ver todo...</a>
-    <br/><br/><br/>
 
     <md-list>
         <md-subheader class="md-no-sticky">Material Prestado</md-subheader>
@@ -24,9 +25,10 @@
                 <p>Desde: {{ item.date | date:'dd/MMM/yyyy @ hh:mm a'}}</p>
             </div>
         </md-list-item>
+        <md-list-item>
+            <md-button class="md-secondary">Ver todo...</md-button>
+        </md-list-item>
     </md-list>
-    <a href="#/borrowed">ver todo...</a>
-    <br/><br/><br/>
 
     <md-list>
         <md-subheader class="md-no-sticky">Tus Laboratorios</md-subheader>
@@ -38,9 +40,10 @@
                 </ul>
             </div>
         </md-list-item>
+        <md-list-item>
+            <md-button class="md-secondary">Ver todo...</md-button>
+        </md-list-item>
     </md-list>
-    <a href="#/labs">ver todo...</a>
-    <br/><br/><br/>
 
     <md-list>
         <md-subheader class="md-no-sticky">Tu Historial</md-subheader>
@@ -51,6 +54,8 @@
                 <p>Desde: {{ item.from | date:'dd/MMM/yyyy @ hh:mm a'}} - Hasta: {{ item.to | date:'dd/MMM/yyyy @hh:mm a'}}</p>
             </div>
         </md-list-item>
+        <md-list-item>
+            <md-button class="md-secondary">Ver todo...</md-button>
+        </md-list-item>
     </md-list>
-    <a href="#/history">ver todo...</a>
 </div>
