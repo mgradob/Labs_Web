@@ -2,8 +2,8 @@ angular.module('labs-cuu', ['ngRoute', 'ngMaterial'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
-                controller: 'MainController',
-                templateUrl: './main/main.html'
+                controller: 'LandingController',
+                templateUrl: 'landing/landing.html'
             })
             .when('/home/:userId', {
                 controller: 'HomeController',
