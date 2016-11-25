@@ -3,7 +3,11 @@ angular.module('labs-cuu', ['ngRoute', 'ngMaterial'])
         $routeProvider
             .when('/', {
                 controller: 'LandingController',
-                templateUrl: 'landing/landing.html'
+                templateUrl: './landing/landing.html'
+            })
+            .when('/signup', {
+                controller: 'SignUpController',
+                templateUrl: './signup/sign-up.html'
             })
             .when('/home/:userId', {
                 controller: 'HomeController',
@@ -11,3 +15,5 @@ angular.module('labs-cuu', ['ngRoute', 'ngMaterial'])
             })
             .otherwise('/');
     });
+
+const BASE_URL = 'http://localhost:3000';

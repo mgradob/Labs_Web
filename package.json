@@ -4,7 +4,7 @@
     "description": "Web App for NOVUS Labs project",
     "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "register": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Armando Colomo, Miguel Grado",
     "license": "ISC",
