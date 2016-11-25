@@ -1,0 +1,13 @@
+<div ng-controller="LabsListController">
+    <p>Selecciona los laboratorios a los que quieres registrarte</p>
+
+    <ul>
+        <div ng-repeat="lab in availableLabs">
+            <md-checkbox ng-checked="labExists(lab)" ng-click="onLabClicked(lab)">
+                {{ lab.name }}
+            </md-checkbox>
+        </div>
+    </ul>
+
+    <md-button ng-click="updateLabs()">Finalizar</md-button>
+</div>
