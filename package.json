@@ -1,18 +1,19 @@
 {
-    "name": "labs-web",
-    "version": "1.0.0",
-    "description": "Web App for NOVUS Labs project",
-    "main": "app.js",
-    "scripts": {
-        "register": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Armando Colomo, Miguel Grado",
-    "license": "ISC",
-    "dependencies": {
-        "angular": "^1.5.8",
-        "angular-animate": "^1.5.8",
-        "angular-aria": "^1.5.8",
-        "angular-material": "^1.1.1",
-        "angular-route": "^1.5.8"
-    }
+  "name": "labs-web",
+  "version": "1.0.0",
+  "description": "Web App for NOVUS Labs project",
+  "main": "app.js",
+  "scripts": {
+    "register": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Armando Colomo, Miguel Grado",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-material": "^1.1.1",
+    "angular-route": "^1.5.8",
+    "angular-ui-router": "^0.3.2"
+  }
 }

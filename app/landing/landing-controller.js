@@ -1,4 +1,4 @@
 angular.module('labs-cuu')
-    .controller('LandingController', ['$scope', function ($scope) {
+    .controller('LandingController', function ($scope) {
         $scope.greeting = 'Hello Labs';
-    }]);
+    });

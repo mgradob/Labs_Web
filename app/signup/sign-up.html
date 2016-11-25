@@ -1,14 +1,5 @@
-<div ng-controller="SignUpController" class="md-content">
+<div class="md-content">
     <h1 class="md-title">Registro</h1>
 
-    {{ signUpStep }}
-
-    <div ng-switch on="signUpStep">
-        <div ng-switch-when="form">
-            <div ng-include="'./signup/view-form.html'"></div>
-        </div>
-        <div ng-switch-when="labs">
-            <div ng-include="'./signup/view-labs-list.html'"></div>
-        </div>
-    </div>
+    <div ui-view></div>
 </div>

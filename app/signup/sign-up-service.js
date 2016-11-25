@@ -28,4 +28,17 @@ angular.module('labs-cuu')
                     return response.data;
                 })
         };
+
+        this.putLabs = function (id_user, labs) {
+            var url = BASE_URL + '/signup/' + id_user;
+
+            var body = {
+                labs: labs
+            };
+
+            return $http.post(url, body)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
     });
