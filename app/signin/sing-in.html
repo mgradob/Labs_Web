@@ -1,0 +1,17 @@
+<div class="md-content">
+    <h1 class="md-display-2">Entrar</h1>
+    <hr/>
+    <br/>
+
+    <form layout="column" ng-submit="signIn(user)">
+        <md-input-container>
+            <input type="text" aria-label="Matrícula" placeholder="Matrícula" required minlength="9" maxlength="9" ng-model="user.id_user" style="text-transform: uppercase">
+        </md-input-container>
+
+        <md-input-container>
+            <input type="password" aria-label="Password" placeholder="Password" required ng-model="user.password">
+        </md-input-container>
+
+        <input class="md-button" type="submit" value="Entrar">
+    </form>
+</div>

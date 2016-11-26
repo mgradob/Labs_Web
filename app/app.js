@@ -11,7 +11,7 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial'])
         //     })
         //     .when('/home/:userId', {
         //         controller: 'HomeController',
-        //         templateUrl: './home/home.html'
+        //         templateUrl: './home/user-home.html'
         //     })
         //     .otherwise('/');
 
@@ -28,8 +28,7 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial'])
             .state('signup', {
                 abstract: true,
                 url: '/signup',
-                templateUrl: './signup/sign-up.html',
-                controller: 'RegisterController'
+                templateUrl: './signup/sign-up.html'
             })
             .state('signup.form', {
                 url: '',
@@ -39,12 +38,47 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial'])
             .state('signup.labs', {
                 url: '/labs/:id_user',
                 templateUrl: 'signup/labs/view-labs-list.html',
-                controller: 'RegisterController'
+                controller: 'LabsListController'
             })
             .state('signup.waiting', {
                 url: '/waiting',
                 templateUrl: 'signup/waiting/view-waiting.html',
-                controller: 'RegisterController'
+                controller: 'WaitingController'
+            });
+        //endregion
+
+        //region Sign In
+        $stateProvider
+            .state('signin', {
+                url: '/signin',
+                templateUrl: './signin/sing-in.html',
+                controller: 'SignInController'
+            });
+        //endregion
+
+        //region Home
+        // Admin
+        $stateProvider
+            .state('adminHome', {
+                url: '/home/admin/:id_user',
+                params: {
+                    id_user: String,
+                    token: String
+                },
+                templateUrl: 'home/admin/admin-home.html',
+                controller: 'AdminHomeController'
+            });
+
+        // User
+        $stateProvider
+            .state('userHome', {
+                url: '/home/user/:id_user',
+                params: {
+                    id_user: String,
+                    token: String
+                },
+                templateUrl: 'home/user/user-home.html',
+                controller: 'UserHomeController'
             });
         //endregion
 
