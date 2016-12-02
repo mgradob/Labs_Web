@@ -2,8 +2,14 @@
  * Created by mgradob on 11/24/16.
  */
 angular.module('labs-cuu')
-    .controller('RegisterController', function ($scope, $state, $timeout, SignUpService) {
+    .controller('RegisterController', function ($scope, $state, $stateParams, $timeout, SignUpService) {
         var savedUserId = '';
+
+        $scope.cancelRegister = function () {
+            $state.go('landing', $stateParams, {
+                location: 'replace'
+            });
+        }
 
         $scope.register = function (user) {
             user.id_user = user.id_user.toUpperCase();
@@ -25,7 +31,11 @@ angular.module('labs-cuu')
             console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + data);
 
             // Go to labs view.
-            $state.go('signup.labs', {id_user: savedUserId}, {location: 'replace'});
+            $state.go('signup.labs', {
+                id_user: savedUserId
+            }, {
+                location: 'replace'
+            });
         };
 
         var onCreateAccountError = function (response) {

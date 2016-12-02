@@ -1,28 +1,38 @@
 <div ng-controller="RegisterController">
-    <p>Introduce tu información para registrarte</p>
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <h1 class="md-headline">Introduce tu información para registrarte</h1>
+            </md-card-title-text>
+        </md-card-title>
 
-    <form layout="column" ng-submit="register(user)">
-        <md-input-container>
-            <input type="text" placeholder="Nombre Completo" required ng-model="user.full_name">
-        </md-input-container>
+        <md-card-content>
+            <form layout="column" ng-submit="register(user)">
+                <md-input-container>
+                    <input type="text" placeholder="Nombre Completo" required ng-model="user.full_name">
+                </md-input-container>
 
-        <md-input-container>
-            <input type="text" aria-label="Matrícula" placeholder="Matrícula" required minlength="9" maxlength="9"
-                   ng-model="user.id_user" style="text-transform: uppercase">
-        </md-input-container>
+                <md-input-container>
+                    <input type="text" aria-label="Matrícula" placeholder="Matrícula" required minlength="9" maxlength="9" ng-model="user.id_user" style="text-transform: uppercase">
+                </md-input-container>
 
-        <md-input-container>
-            <input type="password" aria-label="Password" placeholder="Password" required ng-model="user.password">
-        </md-input-container>
+                <md-input-container>
+                    <input type="password" aria-label="Password" placeholder="Password" required ng-model="user.password">
+                </md-input-container>
 
-        <md-input-container>
-            <input type="text" placeholder="Carrera" required ng-model="user.career" style="text-transform: uppercase">
-        </md-input-container>
+                <md-input-container>
+                    <input type="text" placeholder="Carrera" required ng-model="user.career" style="text-transform: uppercase">
+                </md-input-container>
 
-        <md-input-container>
-            <input type="text" placeholder="Campus" required ng-model="user.campus">
-        </md-input-container>
+                <md-input-container>
+                    <input type="text" placeholder="Campus" required ng-model="user.campus">
+                </md-input-container>
 
-        <input class="md-button" type="submit" value="Continuar">
-    </form>
+                <md-card-actions layout="row" layout-align="right center">
+                    <md-button ng-click="cancelRegister()">Cancelar</md-button>
+                    <input class="md-button md-primary" type="submit" value="Continuar">
+                </md-card-actions>
+            </form>
+        </md-card-content>
+    </md-card>
 </div>
