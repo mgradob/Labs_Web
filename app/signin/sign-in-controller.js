@@ -6,11 +6,11 @@ angular.module('labs-cuu')
         var userId;
 
         $scope.signIn = function (user) {
-            console.log('Signing in ' + user.id_user);
+            userId = user.id_user.toUpperCase();
 
-            userId = user.id_user;
+            console.log('Signing in ' + userId);
 
-            SignInService.signIn(user.id_user, user.password)
+            SignInService.signIn(userId, user.password)
                 .then(onSignInSuccess, onSignInError);
         };
 
@@ -29,7 +29,8 @@ angular.module('labs-cuu')
                     };
 
                     // Go to home
-                    $state.go('userHome', signInInfo);
+                    if (data.isAdmin) $state.go('adminHome', signInInfo);
+                    else $state.go('userHome', signInInfo);
 
                     break;
                 case 211:
