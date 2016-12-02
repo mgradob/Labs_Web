@@ -23,7 +23,7 @@ angular.module('labs-cuu')
 
             switch (status) {
                 case 100:
-                    console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + data);
+                    console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
                     data.forEach(function (lab) {
                         console.log('Lab: ' + lab.name);
                     });
@@ -87,7 +87,7 @@ angular.module('labs-cuu')
 
             switch (status) {
                 case 100:
-                    console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + data);
+                    console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
 
                     $state.go('signup.waiting', $stateParams, {location: 'replace'});
 

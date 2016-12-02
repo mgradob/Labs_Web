@@ -28,7 +28,7 @@ angular.module('labs-cuu')
             var message = response.message;
             var data = response.data;
 
-            console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + data);
+            console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
 
             // Go to labs view.
             $state.go('signup.labs', {
