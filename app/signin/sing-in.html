@@ -1,17 +1,29 @@
-<div class="md-content">
-    <h1 class="md-display-2">Entrar</h1>
-    <hr/>
-    <br/>
+<div class="md-content" layout="row" layout-align="center center">
+    <div flex="30"></div>
 
-    <form layout="column" ng-submit="signIn(user)">
-        <md-input-container>
-            <input type="text" aria-label="Matrícula" placeholder="Matrícula" required minlength="9" maxlength="9" ng-model="user.id_user" style="text-transform: uppercase">
-        </md-input-container>
+    <md-card flex="40">
+        <md-card-title>
+            <md-card-title-text>
+                <h1 class="md-headline">Entrar</h1>
+            </md-card-title-text>
+        </md-card-title>
 
-        <md-input-container>
-            <input type="password" aria-label="Password" placeholder="Password" required ng-model="user.password">
-        </md-input-container>
+        <md-card-content>
+            <form layout="column" ng-submit="signIn(user)">
+                <md-input-container>
+                    <input type="text" aria-label="Matrícula" placeholder="Matrícula" required minlength="9" maxlength="9" ng-model="user.id_user" style="text-transform: uppercase">
+                </md-input-container>
 
-        <input class="md-button" type="submit" value="Entrar">
-    </form>
+                <md-input-container>
+                    <input type="password" aria-label="Password" placeholder="Password" required ng-model="user.password">
+                </md-input-container>
+
+                <md-card-actions layout="row" layout-align="end center">
+                    <input class="md-button md-primary" type="submit" value="Entrar">
+                </md-card-actions>
+            </form>
+        </md-card-content>
+    </md-card>
+
+    <div flex></div>
 </div>
