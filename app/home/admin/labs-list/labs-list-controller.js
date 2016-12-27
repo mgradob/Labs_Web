@@ -3,7 +3,7 @@
  */
 angular.module('labs-cuu')
     .controller('LabsListController', function ($scope, $state, $stateParams, $localStorage) {
-        $scope.labs = $stateParams.user.labs;
+        $scope.labs = $localStorage.user.labs;
 
         $scope.goToLab = function (lab) {
             $localStorage.lab = lab;

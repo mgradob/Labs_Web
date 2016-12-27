@@ -5,8 +5,6 @@ angular.module('labs-cuu')
     .controller('AdminHomeController', function ($scope, $state, $stateParams, $localStorage) {
         $scope.userId = $localStorage.user.id_user;
 
-        $localStorage.lab = $stateParams.lab;
-
         $scope.goToHome = function () {
             $state.go('adminHome.dashboard');
         };
