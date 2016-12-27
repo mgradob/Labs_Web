@@ -39,6 +39,6 @@ angular.module('labs-cuu')
             return $http.post(url, body)
                 .then(function (response) {
                     return response.data;
-                })
+                });
         }
     });
