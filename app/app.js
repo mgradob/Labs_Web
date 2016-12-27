@@ -1,20 +1,5 @@
-angular.module('labs-cuu', ['ui.router', 'ngMaterial'])
-    .config(function ($stateProvider, $urlRouterProvider) {
-        // $routeProvider
-        //     .when('/', {
-        //         controller: 'LandingController',
-        //         templateUrl: './landing/landing.html'
-        //     })
-        //     .when('/signup', {
-        //         controller: 'SignUpController',
-        //         templateUrl: './signup/sign-up.html'
-        //     })
-        //     .when('/home/:userId', {
-        //         controller: 'HomeController',
-        //         templateUrl: './home/user-home.html'
-        //     })
-        //     .otherwise('/');
-
+angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage'])
+    .config(function ($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
         //region Landing
         $stateProvider
             .state('landing', {
@@ -59,23 +44,40 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial'])
         //region Home
         // Admin
         $stateProvider
-            .state('adminHome', {
-                url: '/home/admin/:id_user',
+            .state('adminLabs', {
+                url: '/labs',
                 params: {
-                    id_user: String,
-                    token: String
+                    token: String,
+                    user: Object
                 },
+                templateUrl: 'home/admin/labs-list/view-labs-list.html',
+                controller: 'LabsListController'
+            })
+            .state('adminHome', {
+                url: '/home',
                 templateUrl: 'home/admin/admin-home.html',
                 controller: 'AdminHomeController'
+            })
+            .state('adminHome.dashboard', {
+                url: '/dashboard',
+                templateUrl: './home/admin/dashboard/view-dashboard.html',
+                controller: 'DashboardController'
+            })
+            .state('adminHome.categories', {
+                url: '/categories',
+                templateUrl: 'home/admin/inventory/view-categories.html',
+                controller: 'CategoriesController'
             });
+
+        // Sub Admin
 
         // User
         $stateProvider
             .state('userHome', {
                 url: '/home/user/:id_user',
                 params: {
-                    id_user: String,
-                    token: String
+                    token: String,
+                    user: Object
                 },
                 templateUrl: 'home/user/user-home.html',
                 controller: 'UserHomeController'
@@ -83,6 +85,15 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial'])
         //endregion
 
         $urlRouterProvider.otherwise('/');
+
+        // Material Design Theme
+        $mdThemingProvider
+            .theme('default')
+            .primaryPalette('teal')
+            .accentPalette('orange');
+
+        // Material Design Icons Set
+        $mdIconProvider.defaultIconSet('mdi.svg');
     });
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:8080';
