@@ -2,7 +2,7 @@
  * Created by mgradob on 11/25/16.
  */
 angular.module('labs-cuu')
-    .controller('SignInController', function ($scope, $state, $stateParams, SignInService) {
+    .controller('SignInController', function ($scope, $state, $stateParams, $localStorage, SignInService) {
         var userId;
 
         $scope.signIn = function (user) {
@@ -21,16 +21,31 @@ angular.module('labs-cuu')
 
             console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
 
+            $localStorage.$reset();
+
             switch (status) {
                 case 100:
                     var signInInfo = {
-                        id_user: userId,
-                        token: data.token
+                        token: data.token,
+                        user: data.user
                     };
 
+                    $localStorage.token = data.token;
+                    $localStorage.user = data.user;
+
                     // Go to home
-                    if (data.isAdmin) $state.go('adminHome', signInInfo);
-                    else $state.go('userHome', signInInfo);
+                    switch (data.user.user_type) {
+                        case 'admin':
+                            $state.go('adminLabs', signInInfo);
+
+                            break;
+                        case 'user':
+                            $state.go('userHome', signInInfo);
+
+                            break;
+                        default:
+                            break;
+                    }
 
                     break;
                 case 211:
