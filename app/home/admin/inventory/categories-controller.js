@@ -40,9 +40,9 @@ angular.module('labs-cuu')
 
         //region New Category
         $scope.isCreatingNewCategory = false;
-        $scope.newCategoryName = '';
+        $scope.newCategoryName = null;
         $scope.newCategoryItems = [];
-        $scope.formItem = {
+        $scope.newCategoryNewItem = {
             name: '',
             note: '',
             total: 0,
@@ -51,6 +51,11 @@ angular.module('labs-cuu')
 
         $scope.createNewCategory = function () {
             $scope.isCreatingNewCategory = true;
+            $scope.isEditingCategory = false;
+
+            $scope.detailCategoryName = '';
+            $scope.detailCategoryId = '';
+            $scope.detailCategoryItems = [];
         };
 
         $scope.postNewCategory = function () {
@@ -87,8 +92,9 @@ angular.module('labs-cuu')
 
         $scope.cancelNewCategory = function () {
             $scope.isCreatingNewCategory = false;
+            $scope.newCategoryName = null;
             $scope.newCategoryItems = [];
-            $scope.formItem = {
+            $scope.newCategoryNewItem = {
                 name: '',
                 note: '',
                 total: 0,
@@ -96,12 +102,46 @@ angular.module('labs-cuu')
             };
         };
 
-        $scope.addItemToCategory = function () {
-            var newItem = $scope.formItem;
+        $scope.addNewItemToNewCategory = function () {
+            var newItem = $scope.newCategoryNewItem;
 
             $scope.newCategoryItems.push(newItem);
 
-            $scope.formItem = {
+            $scope.newCategoryNewItem = {
+                name: '',
+                note: '',
+                total: 0,
+                available: 0
+            };
+        };
+        //endregion
+
+        //region Category Details
+        $scope.isEditingCategory = false;
+        $scope.detailCategoryName = '';
+        $scope.detailCategoryId = '';
+        $scope.detailCategoryItems = [];
+        $scope.detailCategoryNewItem = {
+            name: '',
+            note: '',
+            total: 0,
+            available: 0
+        };
+
+        $scope.selectCategory = function (category) {
+            $scope.isEditingCategory = true;
+            $scope.isCreatingNewCategory = false;
+
+            $scope.detailCategoryName = category.name;
+            $scope.detailCategoryId = category.id;
+        };
+
+        $scope.addNewItemToCategory = function () {
+            var newItem = $scope.newCategoryNewItem;
+
+            $scope.detailCategoryItems.push(newItem);
+
+            $scope.detailCategoryNewItem = {
                 name: '',
                 note: '',
                 total: 0,
