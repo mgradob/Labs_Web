@@ -1,3 +1,51 @@
-<div ng-controller="AdminHomeController">
-    Admin
+<div class="md-content" ng-controller="AdminHomeController" layout="row" flex>
+    <md-sidenav class="md-sidenav-left labs-dashboard-nav" layout-padding md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
+        <div>
+            <h2 class="labs-dashboard-nav">Hola, {{ userId }}</h2>
+            <p class="md-body-1 labs-dashboard-nav">/* TODO Cambiar por nombre de lab */ Bienvenido a tu laboratorio,
+                adminístralo sabiamente.</p>
+        </div>
+        <md-divider></md-divider>
+
+        <md-list>
+            <md-list-item class="labs-dashboard-nav" ng-click="goToHome()">
+                <md-icon class="md-avatar-icon" md-svg-icon="home"></md-icon>
+                <p>Home</p>
+            </md-list-item>
+            <md-list-item class="labs-dashboard-nav menu-item" ng-click="goToRequests()">
+                <md-icon class="md-avatar-icon" md-svg-icon="inbox-arrow-down"></md-icon>
+                <p>Pedidos</p>
+            </md-list-item>
+            <md-list-item class="labs-dashboard-nav menu-item" ng-click="goToNewUsers()">
+                <md-icon class="md-avatar-icon" md-svg-icon="account-plus"></md-icon>
+                <p>Nuevos Usuarios</p>
+            </md-list-item>
+            <md-list-item class="labs-dashboard-nav menu-item" ng-click="goToInventory()">
+                <md-icon class="md-avatar-icon" md-svg-icon="store"></md-icon>
+                <p>Inventario</p>
+            </md-list-item>
+            <md-list-item class="labs-dashboard-nav menu-item" ng-click="goToUsers()">
+                <md-icon class="md-avatar-icon" md-svg-icon="account"></md-icon>
+                <p>Usuarios</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <br/>
+
+            <md-list-item class="labs-dashboard-nav menu-item" ng-click="goToLabsList()" ng-show="">
+                <md-icon class="md-avatar-icon" md-svg-icon=" account-settings"></md-icon>
+                <p>Mis Laboratorios</p>
+            </md-list-item>
+            <md-list-item class="labs-dashboard-nav menu-item" ng-click="goToConfig()">
+                <md-icon class="md-avatar-icon" md-svg-icon=" account-settings"></md-icon>
+                <p>Mi Cuenta</p>
+            </md-list-item>
+            <md-list-item class="labs-dashboard-nav menu-item" ng-click="signOut()">
+                <md-icon class="md-avatar-icon" md-svg-icon="logout"></md-icon>
+                <p>Cerrar Sesión</p>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+
+    <div ui-view flex></div>
 </div>

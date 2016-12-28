@@ -1,0 +1,12 @@
+<div ng-controller="LabsListController" layout-padding>
+    <h1>Tus Laboratorios</h1>
+    <md-divider></md-divider>
+
+    <md-list>
+        <md-list-item class="md-2-line" ng-repeat="lab in labs">
+            <div class="md-list-item-text" ng-click="goToLab(lab)">
+                <h2>{{ lab.name }}</h2>
+            </div>
+        </md-list-item>
+    </md-list>
+</div>
