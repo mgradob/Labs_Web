@@ -1,0 +1,74 @@
+<div ng-controller="AddCategoryController" layout="column" flex layout-fill>
+    <div layout="row">
+        <md-button ng-click="cancelNewCategory()">Cancelar</md-button>
+        <span flex></span>
+        <md-button class="md-button md-primary" ng-click="postNewCategory()">Guardar</md-button>
+    </div>
+    <br/>
+
+    <h1>Nueva Categoría</h1>
+
+    <md-input-container flex required>
+        <label>Nombre</label>
+        <input value="{{ newCategoryName }}" type="text" ng-model="newCategoryName">
+    </md-input-container>
+
+    <h2>Items</h2>
+
+    <p ng-hide="newCategoryItems.length > 0">La categoría se creará vacía. Puedes agregar items ahora o más adelante.
+    </p>
+
+    <md-list ng-show="newCategoryItems.length > 0">
+        <md-list-item class="md-3-line" ng-repeat="item in newCategoryItems">
+            <div>
+                <h3>{{ item.name }}</h3>
+
+                <p>{{ item.note }}</p>
+
+                <p>Total: {{ item.total }}</p>
+
+                <p>Disponible: {{ item.available }}</p>
+
+                <md-divider></md-divider>
+            </div>
+        </md-list-item>
+    </md-list>
+
+    <md-card>
+        <md-card-header>
+            <md-card-header-title>
+                <h2>Nuevo Item</h2>
+            </md-card-header-title>
+        </md-card-header>
+
+        <md-card-content>
+            <form ng-submit="addNewItemToNewCategory()" layout="column">
+                <md-input-container required>
+                    <label>Nombre</label>
+                    <input ng-model="newCategoryNewItem.name">
+                </md-input-container>
+
+                <md-input-container required>
+                    <label>Notas</label>
+                    <input ng-model="newCategoryNewItem.note">
+                </md-input-container>
+
+                <div>
+                    <md-input-container required>
+                        <label>Total</label>
+                        <input ng-model="newCategoryNewItem.total" type="number">
+                    </md-input-container>
+
+                    <md-input-container required>
+                        <label>Disponible</label>
+                        <input ng-model="newCategoryNewItem.available" type="number">
+                    </md-input-container>
+                </div>
+
+                <md-card-actions layout="row" layout-align="end center">
+                    <input class="md-button md-primary" type="submit" value="Agregar">
+                </md-card-actions>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>
