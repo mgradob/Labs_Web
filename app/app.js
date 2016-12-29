@@ -36,7 +36,7 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage'])
         $stateProvider
             .state('signin', {
                 url: '/signin',
-                templateUrl: './signin/sing-in.html',
+                templateUrl: 'signin/sign-in.html',
                 controller: 'SignInController'
             });
         //endregion
@@ -67,6 +67,19 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage'])
                 url: '/categories',
                 templateUrl: 'home/admin/inventory/view-categories.html',
                 controller: 'CategoriesController'
+            })
+            .state('adminHome.categories.add', {
+                url: '/add',
+                templateUrl: 'home/admin/inventory/add/view-add-category.html',
+                controller: 'AddCategoryController'
+            })
+            .state('adminHome.categories.edit', {
+                url: '/edit',
+                params: {
+                    categoryId: Number
+                },
+                templateUrl: 'home/admin/inventory/edit/view-edit-category.html',
+                controller: 'EditCategoryController'
             });
 
         // Sub Admin
@@ -90,7 +103,7 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage'])
         $mdThemingProvider
             .theme('default')
             .primaryPalette('teal')
-            .accentPalette('orange');
+            .accentPalette('pink');
 
         // Material Design Icons Set
         $mdIconProvider.defaultIconSet('mdi.svg');

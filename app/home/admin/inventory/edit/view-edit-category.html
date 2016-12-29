@@ -1,0 +1,121 @@
+<div class="md-content" ng-controller="EditCategoryController" layout="column" flex layout-fill>
+    <div layout="row">
+        <md-button class="md-button md-warn" ng-click="postDeleteCategory($event)">Borrar</md-button>
+        <span flex></span>
+        <md-button class="md-button md-primary" ng-click="postEditCategory()">Guardar</md-button>
+    </div>
+    <br/>
+
+    <h1>{{ detailCategory.name }}</h1>
+
+    <md-input-container flex required>
+        <label>Nombre</label>
+        <input value="{{ detailCategory.name }}" type="text" ng-model="detailCategory.name">
+    </md-input-container>
+
+    <h2>Items</h2>
+    <div layout="row">
+        <md-button class="md-raised md-primary" ng-click="addingItem = true; editingItem = false;">Agregar nuevo item</md-button>
+        <span flex></span>
+    </div>
+
+    <p ng-hide="detailCategory.items.length > 0">La categoría no tiene items.</p>
+
+    <md-list ng-show="detailCategory.items.length > 0">
+        <md-list-item class="md-3-line" ng-repeat="item in detailCategory.items" ng-click="editItem(item)">
+            <div layout-fill>
+                <h3>{{ item.name }}</h3>
+
+                <p>{{ item.note }}</p>
+
+                <div layout="row">
+                    <p>Total: {{ item.total }}</p>
+                    <span flex></span>
+                    <p>Disponible: {{ item.available }}</p>
+                </div>
+
+                <md-divider></md-divider>
+            </div>
+        </md-list-item>
+    </md-list>
+
+    <md-card ng-show="addingItem">
+        <md-card-header>
+            <md-card-header-title>
+                <h2>Nuevo Item</h2>
+            </md-card-header-title>
+        </md-card-header>
+
+        <md-card-content>
+            <form ng-submit="addNewItemToCategory()" layout="column">
+                <md-input-container required>
+                    <label>Nombre</label>
+                    <input ng-model="detailCategoryNewItem.name">
+                </md-input-container>
+
+                <md-input-container required>
+                    <label>Notas</label>
+                    <input ng-model="detailCategoryNewItem.note">
+                </md-input-container>
+
+                <div>
+                    <md-input-container required>
+                        <label>Total</label>
+                        <input ng-model="detailCategoryNewItem.total" type="number">
+                    </md-input-container>
+
+                    <md-input-container required>
+                        <label>Disponible</label>
+                        <input ng-model="detailCategoryNewItem.available" type="number">
+                    </md-input-container>
+                </div>
+
+                <md-card-actions layout="row" layout-align="end center">
+                    <input class="md-button" value="Cancelar" ng-click="addingItem = false">
+                    <input class="md-button md-primary" type="submit" value="Agregar">
+                </md-card-actions>
+            </form>
+        </md-card-content>
+    </md-card>
+
+    <md-card ng-show="editingItem">
+        <md-card-header>
+            <md-card-header-title>
+                <h2>Editar</h2>
+            </md-card-header-title>
+        </md-card-header>
+
+        <md-card-content>
+            <form ng-submit="updateEditedItemToCategory()" layout="column">
+                <md-input-container required>
+                    <label>Nombre</label>
+                    <input ng-model="detailCategoryEditItem.name">
+                </md-input-container>
+
+                <md-input-container required>
+                    <label>Notas</label>
+                    <input ng-model="detailCategoryEditItem.note">
+                </md-input-container>
+
+                <div>
+                    <md-input-container required>
+                        <label>Total</label>
+                        <input ng-model="detailCategoryEditItem.total" type="number">
+                    </md-input-container>
+
+                    <md-input-container required>
+                        <label>Disponible</label>
+                        <input ng-model="detailCategoryEditItem.available" type="number">
+                    </md-input-container>
+                </div>
+
+                <md-card-actions layout="row" layout-align="end center">
+                    <input flex class="md-button md-warn" value="Borrar" ng-click="deleteItemFromCategory()">
+                    <span flex></span>
+                    <input flex class="md-button" value="Cancelar" ng-click="editingItem = false">
+                    <input flex class="md-button md-primary" type="submit" value="Guardar">
+                </md-card-actions>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>
