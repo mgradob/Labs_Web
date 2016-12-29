@@ -1,4 +1,4 @@
-<div class="md-content" ng-controller="AddCategoryController" layout="column" flex layout-fill>
+<div ng-controller="AddCategoryController" layout="column" flex layout-fill>
     <div layout="row">
         <md-button ng-click="cancelNewCategory()">Cancelar</md-button>
         <span flex></span>
@@ -15,8 +15,8 @@
 
     <h2>Items</h2>
 
-    <p ng-hide="newCategoryItems.length > 0">La categoría se creará vacía. Puedes agregar items ahora o más
-        adelante.</p>
+    <p ng-hide="newCategoryItems.length > 0">La categoría se creará vacía. Puedes agregar items ahora o más adelante.
+    </p>
 
     <md-list ng-show="newCategoryItems.length > 0">
         <md-list-item class="md-3-line" ng-repeat="item in newCategoryItems">
