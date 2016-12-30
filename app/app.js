@@ -1,4 +1,4 @@
-angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage'])
+angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage', 'ngAnimate'])
     .config(function ($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
         //region Landing
         $stateProvider
@@ -80,6 +80,24 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage'])
                 },
                 templateUrl: 'home/admin/inventory/edit/view-edit-category.html',
                 controller: 'EditCategoryController'
+            })
+            .state('adminHome.users', {
+                url: '/users',
+                templateUrl: 'home/admin/users/view-users.html',
+                controller: 'UsersController'
+            })
+            .state('adminHome.users.add', {
+                url: '/add',
+                templateUrl: 'home/admin/users/add/view-add-user.html',
+                controller: 'AddUserController'
+            })
+            .state('adminHome.users.edit', {
+                url: '/edit',
+                params: {
+                    userId: String
+                },
+                templateUrl: 'home/admin/users/edit/view-edit-user.html',
+                controller: 'EditUserController'
             });
 
         // Sub Admin

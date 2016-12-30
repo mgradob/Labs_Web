@@ -1,0 +1,30 @@
+<div ng-controller="UsersController" layout="row" flex layout-fill>
+    <md-content class="labs-list" flex layout="column" layout-padding>
+        <div layout="row" layout-align="center center">
+            <h2>Usuarios</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="goToAddUser()">
+                <md-icon md-svg-icon="account-plus"></md-icon>
+            </md-button>
+        </div>
+        <md-divider></md-divider>
+
+        <p ng-hide="users.length > 0">No hay usuarios registrados.</p>
+        <md-list ng-show="users.length > 0">
+            <md-list-item class="md-2-line" ng-repeat="user in users" ng-click="goToEditUser(user)">
+                <div ng-switch="user.user_type">
+                    <md-icon ng-switch-when="admin" class="md-avatar-icon" md-svg-icon="account-multiple"></md-icon>
+                    <md-icon ng-switch-default class="md-avatar-icon" md-svg-icon="account"></md-icon>
+                </div>
+                <div>
+                    <h4>{{ user.full_name }}</h4>
+                    <p>{{ user.id_user }}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+    <md-content class="labs-detail" flex="60" layout="column" layout-padding>
+        <div ui-view></div>
+    </md-content>
+</div>

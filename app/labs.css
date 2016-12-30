@@ -1,36 +1,33 @@
 .md-sidenav-left.labs-dashboard-nav {
     background-color: #3B4148;
 }
-
 .labs-dashboard-nav {
     color: #FCFDFD;
 }
-
 .labs-dashboard-nav.menu-item {
     text-align: start;
     text-transform: none;
 }
-
-.labs-categories-list {
+.labs-list {
     background-color: white;
 }
-
-.labs-category-name {
+.labs-detail {
+    background-color: #f0f0f0;
+}
+.labs-list-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
-
 h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
-
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
-
-p, li{
+p,
+li {
     font-family: "Raleway", sans-serif;
     font-weight: 400;
 }
