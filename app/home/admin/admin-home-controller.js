@@ -23,7 +23,7 @@ angular.module('labs-cuu')
         };
 
         $scope.goToUsers = function () {
-            // todo
+            $state.go('adminHome.users');
         };
 
         $scope.goToLabsList = function () {
