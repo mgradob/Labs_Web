@@ -14,12 +14,12 @@ angular.module('labs-cuu')
             // todo
         };
 
-        $scope.goToNewUsers = function () {
-            // todo
-        };
-
         $scope.goToInventory = function () {
             $state.go('adminHome.categories');
+        };
+
+        $scope.goToNewUsers = function () {
+            // todo
         };
 
         $scope.goToUsers = function () {

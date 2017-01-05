@@ -21,9 +21,12 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage', 'ngAnimate']
                 controller: 'RegisterController'
             })
             .state('signup.labs', {
-                url: '/labs/:id_user',
+                url: '/labs',
+                params: {
+                    id_user: String
+                },
                 templateUrl: 'signup/labs/view-labs-list.html',
-                controller: 'LabsListController'
+                controller: 'SignUpLabsListController'
             })
             .state('signup.waiting', {
                 url: '/waiting',
