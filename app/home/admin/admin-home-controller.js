@@ -19,7 +19,7 @@ angular.module('labs-cuu')
         };
 
         $scope.goToNewUsers = function () {
-            // todo
+            $state.go('adminHome.join');
         };
 
         $scope.goToUsers = function () {
