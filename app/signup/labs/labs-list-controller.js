@@ -64,12 +64,12 @@ angular.module('labs-cuu')
                 return;
             }
 
-            var labsIds = [];
+            var labsRequested = [];
             selectedLabs.forEach(function (lab) {
-                labsIds.push(lab.id);
+                labsRequested.push(lab);
             });
 
-            SignUpService.putLabs(userId, labsIds)
+            SignUpService.putLabs(userId, labsRequested)
                 .then(function (response) {
                     var status = response.status;
                     var message = response.message;
@@ -83,7 +83,7 @@ angular.module('labs-cuu')
 
                             break;
                         default:
-                            console.log('Error'); // TODO
+                            console.log('Error: status: ' + status + ' message: ' + message); // TODO
 
                             break;
                     }
