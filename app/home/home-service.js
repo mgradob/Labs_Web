@@ -116,6 +116,61 @@ angular.module('labs-cuu')
         };
         //endregion
 
+        //region Joins - URL: /join/:id_lab
+        this.getJoins = function () {
+            var url = BASE_URL + '/join/' + $localStorage.lab.id;
+
+            return $http
+                .get(url, {
+                    headers: {
+                        "Authorization": $localStorage.token
+                    },
+                    params: {
+                        id_user: $localStorage.user.id_user
+                    }
+                })
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+        //endregion
+
+        //region Joins - URL: /join/:id_lab/:id_user
+        this.acceptUser = function (userId) {
+            var url = BASE_URL + '/join/' + $localStorage.lab.id + '/' + userId;
+
+            return $http
+                .post(url, $localStorage.lab, {
+                    headers: {
+                        "Authorization": $localStorage.token
+                    },
+                    params: {
+                        id_user: $localStorage.user.id_user
+                    }
+                })
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+
+        this.denyUser = function (userId) {
+            var url = BASE_URL + '/join/' + $localStorage.lab.id + '/' + userId;
+
+            return $http
+                .delete(url, {
+                    headers: {
+                        "Authorization": $localStorage.token
+                    },
+                    params: {
+                        id_user: $localStorage.user.id_user
+                    }
+                })
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+        //endregion
+
         //region Users - URL: /users/:labId
         this.getUsers = function () {
             var url = BASE_URL + '/users/' + $localStorage.lab.id;

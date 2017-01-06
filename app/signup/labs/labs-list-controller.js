@@ -71,14 +71,16 @@ angular.module('labs-cuu')
                 return;
             }
 
-            var labsIds = [];
+            var labsRequested = [];
             selectedLabs.forEach(function (lab) {
-               labsIds.push(lab.id);
+                labsRequested.push(lab);
             });
 
-            SignUpService.putLabs(userId, labsIds)
-                .then(onUpdateLabsSuccess, onUpdateLabsError);
-        };
+            SignUpService.putLabs(userId, labsRequested)
+                .then(function (response) {
+                    var status = response.status;
+                    var message = response.message;
+                    var data = response.data;
 
         var onUpdateLabsSuccess = function (response) {
             var status = response.status;
@@ -89,7 +91,9 @@ angular.module('labs-cuu')
                 case 100:
                     console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
 
-                    $state.go('signup.waiting', $stateParams, {location: 'replace'});
+                            break;
+                        default:
+                            console.log('Error: status: ' + status + ' message: ' + message); // TODO
 
                     break;
                 default:

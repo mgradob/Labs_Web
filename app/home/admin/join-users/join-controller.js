@@ -1,18 +1,17 @@
+/**
+ * Created by mgradob on 1/5/17.
+ */
 angular.module('labs-cuu')
-    .controller('UsersController', function ($scope, $state, $stateParams, HomeService) {
-        $scope.users = [];
-
-        $scope.goToAddUser = function () {
-            $state.go('adminHome.users.add');
+    .controller('JoinController', function ($scope, $state, $stateParams, HomeService) {
+        $scope.joinRequests = [];
+        
+        $scope.goToJoinRequest = function (request) {
+            $state.go('adminHome.join.detail', {
+                request: request
+            })
         };
 
-        $scope.goToEditUser = function (user) {
-            $state.go('adminHome.users.edit', {
-                userId: user.id_user
-            });
-        };
-
-        HomeService.getUsers()
+        HomeService.getJoins()
             .then(function (response) {
                 var status = response.status;
                 var message = response.message;
@@ -22,7 +21,7 @@ angular.module('labs-cuu')
                     case 100:
                         console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
 
-                        $scope.users = data;
+                        $scope.joinRequests = data;
 
                         break;
                     default:

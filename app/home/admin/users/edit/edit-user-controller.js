@@ -2,8 +2,6 @@ angular.module('labs-cuu')
     .controller('EditUserController', function ($scope, $state, $stateParams, HomeService) {
         $scope.detailUser = null;
 
-        console.log('User', $stateParams.userId);
-
         HomeService.getUser($stateParams.userId)
             .then(function (response) {
                 var status = response.status;

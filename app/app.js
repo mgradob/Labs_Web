@@ -81,6 +81,19 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage', 'ngAnimate']
                 templateUrl: 'home/admin/inventory/edit/view-edit-category.html',
                 controller: 'EditCategoryController'
             })
+            .state('adminHome.join',{
+                url: '/join',
+                templateUrl: 'home/admin/join-users/view-join.html',
+                controller: 'JoinController'
+            })
+            .state('adminHome.join.detail',{
+                url: '/detail',
+                params : {
+                    request: Object
+                },
+                templateUrl: 'home/admin/join-users/detail/view-join-detail.html',
+                controller: 'JoinDetailController'
+            })
             .state('adminHome.users', {
                 url: '/users',
                 templateUrl: 'home/admin/users/view-users.html',
