@@ -66,6 +66,19 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage', 'ngAnimate']
                 templateUrl: './home/admin/dashboard/view-dashboard.html',
                 controller: 'DashboardController'
             })
+            .state('adminHome.requests',{
+                url: '/requests',
+                templateUrl: 'home/admin/requests/view-requests.html',
+                controller: 'RequestsController'
+            })
+            .state('adminHome.requests.detail',{
+                url: '/detail',
+                params : {
+                    userId: String
+                },
+                templateUrl: 'home/admin/requests/detail/view-request-detail.html',
+                controller: 'RequestDetailController'
+            })
             .state('adminHome.categories', {
                 url: '/categories',
                 templateUrl: 'home/admin/inventory/view-categories.html',
@@ -92,7 +105,7 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage', 'ngAnimate']
             .state('adminHome.join.detail',{
                 url: '/detail',
                 params : {
-                    request: Object
+                    cart: Object
                 },
                 templateUrl: 'home/admin/join-users/detail/view-join-detail.html',
                 controller: 'JoinDetailController'

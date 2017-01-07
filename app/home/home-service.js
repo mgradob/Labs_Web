@@ -22,6 +22,44 @@ angular.module('labs-cuu')
         };
         //endregion
 
+        //region Requests - URL: /requests/:labId
+        this.getRequests = function () {
+            var url = BASE_URL + '/requests/' + $localStorage.lab.id;
+
+            return $http
+                .get(url, {
+                    headers: {
+                        "Authorization": $localStorage.token
+                    },
+                    params: {
+                        id_user: $localStorage.user.id_user
+                    }
+                })
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+        //endregion
+
+        //region Requests - URL: /requests/:labId/:requestId
+        this.getRequest = function (userId) {
+            var url = BASE_URL + '/requests/' + $localStorage.lab.id + '/' + userId;
+
+            return $http
+                .get(url, {
+                    headers: {
+                        "Authorization": $localStorage.token
+                    },
+                    params: {
+                        id_user: $localStorage.user.id_user
+                    }
+                })
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+        //endregion
+
         //region Inventory - URL: /inventory/:labId
         this.getLabInventory = function () {
             var url = BASE_URL + '/inventory/' + $localStorage.lab.id;

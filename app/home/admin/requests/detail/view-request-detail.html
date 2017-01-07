@@ -1,0 +1,24 @@
+<div ng-controller="RequestDetailController" layout="column" flex layout-fill>
+    <div layout="row">
+        <md-button class="md-button md-warn" ng-click="">Borrar</md-button>
+        <span flex></span>
+        <md-button class="md-raised md-primary" ng-click="">Guardar</md-button>
+    </div>
+
+    <h1>{{ cart.full_name }}</h1>
+    <h4>{{ cart.id_user }}</h4>
+
+    <h2>Pedido</h2>
+    <md-list>
+        <md-list-item class="md-2-line" ng-repeat="cartItem in cart.cart">
+            <div>
+                <md-divider></md-divider>
+                <h4>{{ cartItem.component_name }}</h4>
+                <p>{{ cartItem.component_description }}</p>
+                <p>Cantidad: {{ cartItem.quantity }}</p>
+                <p>{{ cartItem.status }}</p>
+                <p>Pedido el {{ cartItem.date_requested | date:'dd/MM/yyyy @ hh:mm a' }}</p>
+            </div>
+        </md-list-item>
+    </md-list>
+</div>
