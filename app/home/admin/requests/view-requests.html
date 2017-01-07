@@ -1,0 +1,22 @@
+<div ng-controller="RequestsController" layout="row" flex layout-fill>
+    <md-content class="labs-list" flex layout="column" layout-padding>
+        <div layout="row" layout-align="start center">
+            <h2>Pedidos</h2>
+        </div>
+        <md-divider></md-divider>
+
+        <p ng-hide="materialRequests.length > 0">No hay pedidos actualmente.</p>
+        <md-list ng-show="materialRequests.length > 0">
+            <md-list-item class="md-2-line" ng-repeat="cart in materialRequests" ng-click="goToRequestDetail(cart.id_user)">
+                <div>
+                    <h4>{{ cart.full_name }}</h4>
+                    <p>{{ cart.id_user }}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+    <md-content class="labs-detail" flex="60" layout="column" layout-padding>
+        <div ui-view></div>
+    </md-content>
+</div>

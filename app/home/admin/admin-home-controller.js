@@ -11,7 +11,7 @@ angular.module('labs-cuu')
         };
 
         $scope.goToRequests = function () {
-            // todo
+            $state.go('adminHome.requests');
         };
 
         $scope.goToInventory = function () {
