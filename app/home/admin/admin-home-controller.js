@@ -30,8 +30,8 @@ angular.module('labs-cuu')
             // todo
         };
 
-        $scope.goToConfig = function () {
-            // todo
+        $scope.goToAccountInfo = function () {
+            $state.go('adminHome.account');
         };
 
         $scope.signOut = function () {

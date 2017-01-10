@@ -280,4 +280,23 @@ angular.module('labs-cuu')
                 });
         };
         //endregion
+
+        //region Account - URL: /account
+        this.getAccountInfo = function () {
+            var url = BASE_URL + '/account';
+
+            return $http
+                .get(url, {
+                    headers: {
+                        "Authorization": $localStorage.token
+                    },
+                    params: {
+                        id_user: $localStorage.user.id_user
+                    }
+                })
+                .then(function (response) {
+                    return response.data;
+                });
+        };
+        //endregion
     });

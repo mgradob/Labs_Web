@@ -1,0 +1,24 @@
+<div ng-controller="AccountController" layout="column" flex layout-fill layout-padding>
+    <h1>Mi Información</h1>
+    <md-divider></md-divider>
+    <p>{{ userInfo.full_name }}</p>
+    <p>{{ userInfo.id_user }}</p>
+    <p>{{ userInfo.campus }}</p>
+    <p>{{ userInfo.mail }}</p>
+    <md-button class="md-raised md-primary" ng-disabled="true">Cambiar Password</md-button>
+    <br>
+
+    <h1>Laboratorios</h1>
+    <md-divider></md-divider>
+    <md-list>
+        <md-list-item ng-repeat="lab in userInfo.labs">
+            <div>
+                <h4>{{ lab.name }}</h4>
+            </div>
+        </md-list-item>
+    </md-list>
+
+    <md-dialog ng-show="showChangePasswordDialog">
+        <h1>Cambiar Password</h1>
+    </md-dialog>
+</div>
