@@ -127,6 +127,11 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage', 'ngAnimate']
                 },
                 templateUrl: 'home/admin/users/edit/view-edit-user.html',
                 controller: 'EditUserController'
+            })
+            .state('adminHome.account', {
+                url: '/account',
+                templateUrl: './home/admin/account/view-account.html',
+                controller: 'AccountController'
             });
 
         // Sub Admin
