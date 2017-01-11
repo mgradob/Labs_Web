@@ -2,7 +2,7 @@
  * Created by mgradob on 11/25/16.
  */
 angular.module('labs-cuu')
-    .service('HomeService', function ($http, $localStorage) {
+    .service('AdminHomeService', function ($http, $localStorage) {
         //region Home - URL: /home/:userId
         this.getUserHome = function () {
             var url = BASE_URL + '/home/' + $localStorage.user.id_user;

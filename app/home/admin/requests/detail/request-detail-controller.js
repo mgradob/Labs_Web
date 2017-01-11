@@ -2,10 +2,10 @@
  * Created by mgradob on 1/6/17.
  */
 angular.module('labs-cuu')
-    .controller('RequestDetailController', function ($scope, $state, $stateParams, HomeService) {
+    .controller('RequestDetailController', function ($scope, $state, $stateParams, AdminHomeService) {
         $scope.cart = null;
 
-        HomeService.getRequest($stateParams.userId)
+        AdminHomeService.getRequest($stateParams.userId)
             .then(function (response) {
                 var status = response.status;
                 var message = response.message;

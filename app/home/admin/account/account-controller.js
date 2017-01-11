@@ -2,7 +2,7 @@
  * Created by mgradob on 1/9/17.
  */
 angular.module('labs-cuu')
-    .controller('AccountController', function ($scope, $state, $stateParams, HomeService) {
+    .controller('AccountController', function ($scope, $state, $stateParams, AdminHomeService) {
         $scope.userInfo = null;
 
         $scope.onChangePasswordDialog = function (ev) {
@@ -17,7 +17,7 @@ angular.module('labs-cuu')
             );
         };
 
-        HomeService.getAccountInfo()
+        AdminHomeService.getAccountInfo()
             .then(function (response) {
                 var status = response.status;
                 var message = response.message;

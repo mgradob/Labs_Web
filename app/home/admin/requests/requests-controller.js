@@ -2,7 +2,7 @@
  * Created by mgradob on 1/6/17.
  */
 angular.module('labs-cuu')
-    .controller('RequestsController', function ($scope, $state, $stateParams, HomeService) {
+    .controller('RequestsController', function ($scope, $state, $stateParams, AdminHomeService) {
         $scope.materialRequests = [];
         
         $scope.goToRequestDetail = function (userId) {
@@ -11,7 +11,7 @@ angular.module('labs-cuu')
             })
         };
 
-        HomeService.getRequests()
+        AdminHomeService.getRequests()
             .then(function (response) {
                 var status = response.status;
                 var message = response.message;

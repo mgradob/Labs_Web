@@ -40,7 +40,10 @@ angular.module('labs-cuu')
 
                             break;
                         case 'user':
-                            $state.go('userHome', signInInfo);
+                            if(data.user.labs.length > 0)
+                                $state.go('userHome', signInInfo);
+                            else
+                                $state.go('signup.waiting', {}, {location: 'replace'});
 
                             break;
                         default:

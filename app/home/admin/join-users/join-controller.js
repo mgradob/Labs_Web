@@ -2,7 +2,7 @@
  * Created by mgradob on 1/5/17.
  */
 angular.module('labs-cuu')
-    .controller('JoinController', function ($scope, $state, $stateParams, HomeService) {
+    .controller('JoinController', function ($scope, $state, $stateParams, AdminHomeService) {
         $scope.joinRequests = [];
         
         $scope.goToJoinRequest = function (request) {
@@ -11,7 +11,7 @@ angular.module('labs-cuu')
             })
         };
 
-        HomeService.getJoins()
+        AdminHomeService.getJoins()
             .then(function (response) {
                 var status = response.status;
                 var message = response.message;

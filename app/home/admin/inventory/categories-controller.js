@@ -2,7 +2,7 @@
  * Created by mgradob on 12/12/16.
  */
 angular.module('labs-cuu')
-    .controller('CategoriesController', function ($scope, $state, $stateParams, HomeService) {
+    .controller('CategoriesController', function ($scope, $state, $stateParams, AdminHomeService) {
         $scope.categories = [];
 
         $scope.goToAddCategory = function () {
@@ -43,6 +43,6 @@ angular.module('labs-cuu')
             // TODO
         };
 
-        HomeService.getLabInventory()
+        AdminHomeService.getLabInventory()
             .then(onGetLabInventorySuccess, onGetLabInventoryError);
     });

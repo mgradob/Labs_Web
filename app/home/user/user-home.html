@@ -1,3 +1,79 @@
-<div class="md-padding" ng-controller="UserHomeController">
-    User
+<div ng-controller="UserHomeController" layout-padding layout="column" flex>
+    <h1>Bienvenido, {{ userName }}.</h1>
+    <br>
+
+    <h2>Carrito</h2>
+    <md-divider></md-divider>
+    <p ng-hide="cart.length > 0">No tienes items en el carrito.</p>
+    <md-list ng-show="cart.length > 0">
+        <md-list-item class="md-2-line" ng-repeat="item in cart">
+            <div>
+                <h4>{{ item.name }}</h4>
+                <p>{{ item.description }}</p>
+                <p>{{ item.quantity }}</p>
+            </div>
+        </md-list-item>
+    </md-list>
+    <div layout="row">
+        <span flex></span>
+        <md-button class="md-raised md-primary">Ver más</md-button>
+    </div>
+    <br>
+
+    <h2>Prestado</h2>
+    <md-divider></md-divider>
+    <p ng-hide="borrowed.length > 0">No tienes items prestados.</p>
+    <md-list ng-show="borrowed.length > 0">
+        <md-list-item class="md-2-line" ng-repeat="item in borrowed">
+            <div>
+                <h4>{{ item.name }}</h4>
+                <p>{{ item.description }}</p>
+                <p>{{ item.quantity }}</p>
+            </div>
+        </md-list-item>
+    </md-list>
+    <div layout="row">
+        <span flex></span>
+        <md-button class="md-raised md-primary">Ver más</md-button>
+    </div>
+    <br>
+
+    <h2>Laboratorios</h2>
+    <md-divider></md-divider>
+    <md-list>
+        <md-list-item class="md-2-line" ng-repeat="item in labs" flex="100">
+            <div>
+                <h4>{{ item.name }}</h4>
+
+                <div layout="row" >
+                    <md-button ng-repeat="category in item.categories" ng-click="">
+                        <p>{{ category.name }}</p>
+                    </md-button>
+                </div>
+            </div>
+        </md-list-item>
+    </md-list>
+    <div layout="row">
+        <span flex></span>
+        <md-button class="md-raised md-primary">Ver más</md-button>
+    </div>
+    <br>
+
+    <h2>Historial</h2>
+    <md-divider></md-divider>
+    <p ng-hide="history.length > 0">No tienes historial registrado.</p>
+    <md-list ng-show="history.length > 0">
+        <md-list-item class="md-2-line" ng-repeat="item in history">
+            <div>
+                <h4>{{ item.name }}</h4>
+                <p>{{ item.description }}</p>
+                <p>{{ item.quantity }}</p>
+            </div>
+        </md-list-item>
+    </md-list>
+    <div layout="row">
+        <span flex></span>
+        <md-button class="md-raised md-primary">Ver más</md-button>
+    </div>
+    <br>
 </div>
