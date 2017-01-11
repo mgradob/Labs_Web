@@ -1,0 +1,25 @@
+<div ng-controller="CategoriesController" layout="row" flex layout-fill>
+    <md-content class="labs-list" flex layout="column" layout-padding>
+        <div layout="row" layout-align="center center">
+            <h2>Categorías</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="goToAddCategory()">
+                <md-icon md-svg-icon="plus"></md-icon>
+            </md-button>
+        </div>
+        <md-divider></md-divider>
+
+        <p ng-hide="categories.length > 0">No existen categorías.</p>
+        <md-list ng-show="categories.length > 0">
+            <md-list-item class="md-2-line" ng-repeat="category in categories" ng-click="goToEditCategory(category)">
+                <div>
+                    <p>{{ category.name }}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+    <md-content class="labs-detail" flex="60" layout="column" layout-padding>
+        <div ui-view></div>
+    </md-content>
+</div>

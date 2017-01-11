@@ -6,8 +6,8 @@
     <title>Labs CUU</title>
 
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css">
-    <link rel="stylesheet" href="labs-stylesheet.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="stylesheet" href="labs.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400,500">
 </head>
 
 <body>
@@ -37,9 +37,31 @@
     <script src="signin/sign-in-service.js"></script>
 
     <!-- Home -->
-    <script src="home/admin/admin-home-controller.js"></script>
-    <script src="home/user/user-home-controller.js"></script>
+    <script src="home/admin/dashboard/dashboard-controller.js"></script>
     <script src="home/home-service.js"></script>
+
+    <!-- Home - Admin -->
+    <script src="home/admin/admin-home-controller.js"></script>
+    <script src="home/admin/labs-list/labs-list-controller.js"></script>
+    <script src="home/admin/inventory/categories-controller.js"></script>
+    <script src="home/admin/users/users-controller.js"></script>
+    <!-- Requests -->
+    <script src="home/admin/requests/requests-controller.js"></script>
+    <script src="home/admin/requests/detail/request-detail-controller.js"></script>
+    <!-- Categories -->
+    <script src="home/admin/inventory/add/add-category-controller.js"></script>
+    <script src="home/admin/inventory/edit/edit-category-controller.js"></script>
+    <!-- New Users -->
+    <script src="home/admin/join-users/join-controller.js"></script>
+    <script src="home/admin/join-users/detail/join-detail-controller.js"></script>
+    <!-- Users -->
+    <script src="home/admin/users/add/add-user-controller.js"></script>
+    <script src="home/admin/users/edit/edit-user-controller.js"></script>
+    <!-- Account -->
+    <script src="home/admin/account/account-controller.js"></script>
+
+    <!-- Home - User -->
+    <script src="home/user/user-home-controller.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,100 @@
+<div ng-controller="DashboardController" layout-padding>
+    <div layout="row" layout-xs="column" layout-align="center top">
+        <md-card flex="50" flex-xs="100">
+            <md-card-header>
+                <md-card-header-title>
+                    <h2>Pedidos</h2>
+                </md-card-header-title>
+            </md-card-header>
+            <md-divider layout-margin></md-divider>
+            <md-card-content>
+                <p ng-hide="carts.length > 0">No hay nuevos pedidos por el momento.</p>
+                <md-list ng-show="carts.length > 0">
+                    <md-list-item class="md-3-line" ng-repeat="cart in carts">
+                        <div class="md-list-item-text">
+                            <h3>{{ cart.student_name }}</h3>
+                            <p>{{ cart.student_id }}</p>
+                            <p>{{ cart.date_requested }}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-primary" ng-show="carts.length == 3" ng-click="goToRequests()">Ver más
+                </md-button>
+            </md-card-actions>
+        </md-card>
+
+        <md-card flex="50" flex-xs="100">
+            <md-card-header>
+                <md-card-header-title>
+                    <h2>Nuevos Usuarios</h2>
+                </md-card-header-title>
+            </md-card-header>
+            <md-divider layout-margin></md-divider>
+            <md-card-content>
+                <p ng-hide="newUsers.length > 0">No hay nuevos usuarios por el momento.</p>
+                <md-list ng-show="newUsers.length > 0">
+                    <md-list-item class="md-2-line" ng-repeat="user in newUsers">
+                        <div class="md-list-item-text">
+                            <h3>{{ user.user_name }}</h3>
+                            <p>{{ user.user_id }}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-primary" ng-show="newUsers.length == 3" ng-click="">Ver más</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+
+
+    <div layout="row" layout-xs="column" layout-align="center top">
+        <md-card flex="50" flex-xs="100">
+            <md-card-header>
+                <md-card-header-title>
+                    <h2>Inventario</h2>
+                </md-card-header-title>
+            </md-card-header>
+            <md-divider layout-margin></md-divider>
+            <md-card-content>
+                <p ng-hide="categories.length > 0">No existen categorías por el momento.</p>
+                <span ng-show="categories.length > 0" layout="row" style="overflow: scroll;">
+                    <p ng-repeat="category in categories" layout-padding>
+                        {{ category }}
+                    </p>
+                </span>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-primary" ng-hide="categories.length > 0" ng-click="goToInventory()">Crear nueva categoría
+                </md-button>
+                <md-button class="md-primary" ng-show="categories.length > 0" ng-click="goToInventory()">Editar categorias
+                </md-button>
+            </md-card-actions>
+        </md-card>
+
+        <md-card flex="50" flex-xs="100">
+            <md-card-header>
+                <md-card-header-title>
+                    <h2>Usuarios</h2>
+                </md-card-header-title>
+            </md-card-header>
+            <md-divider layout-margin></md-divider>
+            <md-card-content>
+                <p ng-hide="users.length > 0">No hay usuarios por el momento.</p>
+                <md-list ng-show="users.length > 0">
+                    <md-list-item class="md-2-line" ng-repeat="user in users">
+                        <div class="md-list-item-text">
+                            <h3>{{ user.full_name }}</h3>
+                            <p>{{ user.id_user }}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-primary" ng-show="users.length == 3" ng-click="">Ver más</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>

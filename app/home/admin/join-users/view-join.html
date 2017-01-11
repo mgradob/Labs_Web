@@ -1,0 +1,22 @@
+<div ng-controller="JoinController" layout="row" flex layout-fill>
+    <md-content class="labs-list" flex layout="column" layout-padding>
+        <div layout="row" layout-align="start center">
+            <h2>Nuevos Usuarios</h2>
+        </div>
+        <md-divider></md-divider>
+
+        <p ng-hide="joinRequests.length > 0">No hay usuarios registrados.</p>
+        <md-list ng-show="joinRequests.length > 0">
+            <md-list-item class="md-2-line" ng-repeat="request in joinRequests" ng-click="goToJoinRequest(request)">
+                <div>
+                    <h4>{{ request.user_name }}</h4>
+                    <p>{{ request.user_id }}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+    <md-content class="labs-detail" flex="60" layout="column" layout-padding>
+        <div ui-view></div>
+    </md-content>
+</div>

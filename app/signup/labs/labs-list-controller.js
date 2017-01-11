@@ -2,57 +2,50 @@
  * Created by mgradob on 11/25/16.
  */
 angular.module('labs-cuu')
-    .controller('LabsListController', function ($scope, $state, $stateParams, SignUpService) {
+    .controller('SignUpLabsListController', function ($scope, $state, $stateParams, SignUpService) {
         var userId = $stateParams.id_user;
 
         $scope.availableLabs = [];
         var selectedLabs = [];
 
-        //region Get Labs
-        var getAvailableLabs = function (id_user) {
+        function getAvailableLabs(id_user) {
             console.log('Getting available labs for ' + id_user);
 
             SignUpService.getLabs(id_user)
-                .then(onGetLabsSuccess, onGetLabsError)
-        };
+                .then(function (response) {
+                    var status = response.status;
+                    var message = response.message;
+                    var data = response.data;
 
-        var onGetLabsSuccess = function (response) {
-            var status = response.status;
-            var message = response.message;
-            var data = response.data;
+                    switch (status) {
+                        case 100:
+                            console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
+                            data.forEach(function (lab) {
+                                console.log('Lab: ' + lab.name);
+                            });
 
-            switch (status) {
-                case 100:
-                    console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
-                    data.forEach(function (lab) {
-                        console.log('Lab: ' + lab.name);
-                    });
+                            $scope.availableLabs = data;
 
-                    $scope.availableLabs = data;
+                            break;
+                        case 202:
+                            console.log('User not found'); // TODO
 
-                    break;
-                case 202:
-                    console.log('User not found'); // TODO
+                            break;
+                        default:
+                            console.log('Error'); // TODO
 
-                    break;
-                default:
-                    console.log('Error'); // TODO
+                            break;
+                    }
+                }, function (response) {
+                    var status = response.status;
+                    var message = response.message;
 
-                    break;
-            }
-        };
+                    console.log('Error: status: ' + status + ' message: ' + message);
 
-        var onGetLabsError = function (response) {
-            var status = response.status;
-            var message = response.message;
+                    // TODO
+                });
+        }
 
-            console.log('Error: status: ' + status + ' message: ' + message);
-
-            // TODO
-        };
-        //endregion
-
-        //region Save Labs
         $scope.onLabClicked = function (lab) {
             var index = selectedLabs.indexOf(lab);
 
@@ -71,43 +64,38 @@ angular.module('labs-cuu')
                 return;
             }
 
-            var labsIds = [];
+            var labsRequested = [];
             selectedLabs.forEach(function (lab) {
-               labsIds.push(lab.id);
+                labsRequested.push(lab);
             });
 
-            SignUpService.putLabs(userId, labsIds)
-                .then(onUpdateLabsSuccess, onUpdateLabsError);
+            SignUpService.putLabs(userId, labsRequested)
+                .then(function (response) {
+                    var status = response.status;
+                    var message = response.message;
+                    var data = response.data;
+
+                    switch (status) {
+                        case 100:
+                            console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
+
+                            $state.go('signup.waiting', $stateParams, {location: 'replace'});
+
+                            break;
+                        default:
+                            console.log('Error: status: ' + status + ' message: ' + message); // TODO
+
+                            break;
+                    }
+                }, function (response) {
+                    var status = response.status;
+                    var message = response.message;
+
+                    console.log('Error: status: ' + status + ' message: ' + message);
+
+                    // TODO
+                });
         };
-
-        var onUpdateLabsSuccess = function (response) {
-            var status = response.status;
-            var message = response.message;
-            var data = response.data;
-
-            switch (status) {
-                case 100:
-                    console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
-
-                    $state.go('signup.waiting', $stateParams, {location: 'replace'});
-
-                    break;
-                default:
-                    console.log('Error'); // TODO
-
-                    break;
-            }
-        };
-
-        var onUpdateLabsError = function (response) {
-            var status = response.status;
-            var message = response.message;
-
-            console.log('Error: status: ' + status + ' message: ' + message);
-
-            // TODO
-        };
-        //endregion
 
         getAvailableLabs(userId);
     });
