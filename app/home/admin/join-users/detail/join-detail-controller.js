@@ -2,11 +2,11 @@
  * Created by mgradob on 1/5/17.
  */
 angular.module('labs-cuu')
-    .controller('JoinDetailController', function ($scope, $state, $stateParams, HomeService) {
+    .controller('JoinDetailController', function ($scope, $state, $stateParams, AdminHomeService) {
         $scope.joinRequest = $stateParams.request;
 
         $scope.postDenyUser = function () {
-            HomeService.denyUser($scope.joinRequest.user_id)
+            AdminHomeService.denyUser($scope.joinRequest.user_id)
                 .then(function (response) {
                     var status = response.status;
                     var message = response.message;
@@ -33,7 +33,7 @@ angular.module('labs-cuu')
         };
 
         $scope.postAcceptUser = function () {
-            HomeService.acceptUser($scope.joinRequest.user_id)
+            AdminHomeService.acceptUser($scope.joinRequest.user_id)
                 .then(function (response) {
                     var status = response.status;
                     var message = response.message;

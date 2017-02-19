@@ -2,7 +2,7 @@
  * Created by mgradob on 12/28/16.
  */
 angular.module('labs-cuu')
-    .controller('EditCategoryController', function ($scope, $state, $stateParams, $mdDialog, HomeService) {
+    .controller('EditCategoryController', function ($scope, $state, $stateParams, $mdDialog, AdminHomeService) {
         $scope.detailCategory = null;
         $scope.detailCategoryNewItem = {
             name: '',
@@ -32,7 +32,7 @@ angular.module('labs-cuu')
 
             $mdDialog.show(confirm)
                 .then(function () {
-                    HomeService.deleteCategory($scope.detailCategory.id)
+                    AdminHomeService.deleteCategory($scope.detailCategory.id)
                         .then(function (response) {
                             var status = response.status;
                             var message = response.message;
@@ -60,7 +60,7 @@ angular.module('labs-cuu')
         };
 
         $scope.postEditCategory = function () {
-            HomeService.editCategory($scope.detailCategory)
+            AdminHomeService.editCategory($scope.detailCategory)
                 .then(function (response) {
                     var status = response.status;
                     var message = response.message;
@@ -148,7 +148,7 @@ angular.module('labs-cuu')
         };
         //endregion
 
-        HomeService.getCategory($stateParams.categoryId)
+        AdminHomeService.getCategory($stateParams.categoryId)
             .then(function (response) {
                 var status = response.status;
                 var message = response.message;

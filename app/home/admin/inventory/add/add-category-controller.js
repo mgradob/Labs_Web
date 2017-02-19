@@ -2,7 +2,7 @@
  * Created by mgradob on 12/28/16.
  */
 angular.module('labs-cuu')
-    .controller('AddCategoryController', function ($scope, $state, $stateParams, HomeService) {
+    .controller('AddCategoryController', function ($scope, $state, $stateParams, AdminHomeService) {
         $scope.newCategoryName = null;
         $scope.newCategoryItems = [];
         $scope.newCategoryNewItem = {
@@ -24,7 +24,7 @@ angular.module('labs-cuu')
                 return;
             }
 
-            HomeService.postNewCategory(newCategory)
+            AdminHomeService.postNewCategory(newCategory)
                 .then(function (response) {
                     var status = response.status;
                     var message = response.message;
@@ -32,7 +32,7 @@ angular.module('labs-cuu')
 
                     console.log('Success: status: ' + status + ' message: ' + message + ' data: ' + JSON.stringify(data));
 
-                    cancelNewCategory();
+                    $scope.cancelNewCategory();
                 }, function (response) {
                     var status = response.status;
                     var message = response.message;

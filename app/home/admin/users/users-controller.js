@@ -1,5 +1,5 @@
 angular.module('labs-cuu')
-    .controller('UsersController', function ($scope, $state, $stateParams, HomeService) {
+    .controller('UsersController', function ($scope, $state, $stateParams, AdminHomeService) {
         $scope.users = [];
 
         $scope.goToAddUser = function () {
@@ -12,7 +12,7 @@ angular.module('labs-cuu')
             });
         };
 
-        HomeService.getUsers()
+        AdminHomeService.getUsers()
             .then(function (response) {
                 var status = response.status;
                 var message = response.message;

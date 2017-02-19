@@ -105,7 +105,7 @@ angular.module('labs-cuu', ['ui.router', 'ngMaterial', 'ngStorage', 'ngAnimate']
             .state('adminHome.join.detail',{
                 url: '/detail',
                 params : {
-                    cart: Object
+                    request: Object
                 },
                 templateUrl: 'home/admin/join-users/detail/view-join-detail.html',
                 controller: 'JoinDetailController'

@@ -2,7 +2,7 @@
  * Created by mgradob on 12/10/16.
  */
 angular.module('labs-cuu')
-    .controller('DashboardController', function ($scope, $state, $stateParams, $localStorage, HomeService) {
+    .controller('DashboardController', function ($scope, $state, $stateParams, $localStorage, AdminHomeService) {
         $scope.carts = [];
         $scope.newUsers = [];
         $scope.categories = [];
@@ -48,6 +48,6 @@ angular.module('labs-cuu')
             // TODO
         };
 
-        HomeService.getUserHome($localStorage.id)
+        AdminHomeService.getUserHome($localStorage.id)
             .then(onGetHomeSuccess, onGetHomeError);
     });

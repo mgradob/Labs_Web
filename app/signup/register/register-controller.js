@@ -30,9 +30,7 @@ angular.module('labs-cuu')
                     // Go to labs view.
                     $state.go('signup.labs', {
                         id_user: savedUserId
-                    }, {
-                        location: 'replace'
-                    });
+                    }, {location: 'replace'});
                 }, function (response) {
                     var status = response.status;
                     var message = response.message;
